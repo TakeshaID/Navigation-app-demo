@@ -1,0 +1,97 @@
+ <!DOCTYPE html>
+ <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--   import bootstrap ( a css framekwork that built in classes that make 
+        styling easy), link to a CDN content delivery network; it will allow 
+        to load without downloading a bunch of custom css and javascript   -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    />
+    <title>{% block title %}Home{% endblock %}</title>
+ </head>
+ <body>
+    <!-- bootstrap class I have taken from the website-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" 
+          type="button" 
+          data-toggle="collapse" 
+          data-target="#navbar"
+        >
+          <span class="navbar-toggler-icon"></span> 
+        </button>
+        <div class="collapse navbar-collapse" id="navbar">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" id="canteens" href="/canteen">Canteens</a>
+            <a class="nav-item nav-link" id="lecture_halls" href="/lecture_halls">Lecture halls</a>
+            <a class="nav-item nav-link" id="study" href="/canteen">Study rooms</a>
+            <a class="nav-item nav-link" id="toilets" href="/toilets">Toilets</a>
+          </div>
+        </div>
+    </nav>
+
+
+
+    <div class="container" style="float:left; width: 20%; border-style: solid; border-bottom-style: none; min-height: 92.4vh; border-top-style: none">
+    {% block content %}
+    {% endblock %}
+    </div>
+    <div >
+      <form method="POST">
+        <h3 align="center">The route finder</h3>
+        <div align="center">
+            <label for="firstPoint">Starting point</label>
+            <select name="firstPoint" id="firstPoint">
+              <option value="Cabinet_A">Cabinet A</option>
+              <option value="Cabinet_B">Cabinet B</option>
+              <option value="Cabinet_C">Cabinet C</option>
+            </select>
+            <label style="margin-left: 50px" for="secondPoint">Ending point</label>
+            <select name="secondPoint" id="secondPoint">
+              <option value="Cabinet_A">Cabinet A</option>
+              <option value="Cabinet_B">Cabinet B</option>
+              <option value="Cabinet_C">Cabinet C</option>
+            </select>
+        </div>
+        <br />
+          <!--<a href="https://www.google.com/maps"> <div align="center" style="margin-left: 550px" type="submit" class="btn btn-primary">Find the route</div></a>
+          -->
+          <button align="center" style="margin-left: 550px" type="submit" class="btn btn-primary">Find the route</button>
+     
+
+    </form>
+    </div>
+
+
+    <!-- below we download javascript related to bootstrap (fancy animations,) I don't underestand exactly how they work -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='index.js')}}"
+    ></script>
+ </body>
+ </html>

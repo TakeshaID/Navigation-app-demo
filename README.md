@@ -9,4 +9,5 @@ Installation
 --------
 To run the application, install Flask:
 > pip install flask
+> 
 then, run main.py
